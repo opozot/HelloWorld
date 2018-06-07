@@ -82,6 +82,10 @@ public class EarthquakeCityMap extends PApplet {
         }
 
         // Add the markers to the map so that they are displayed
+        for (SimplePointMarker mk : markers) {
+            map.addMarkers( new SimplePointMarker( mk.getLocation() ) );
+        }
+
 
     }
 
@@ -102,7 +106,6 @@ public class EarthquakeCityMap extends PApplet {
 
         // Create a new SimplePointMarker at the location given by the PointFeature
         SimplePointMarker marker = new SimplePointMarker( feature.getLocation() );
-
         Object magObj = feature.getProperty( "magnitude" );
         float mag = Float.parseFloat( magObj.toString() );
 
