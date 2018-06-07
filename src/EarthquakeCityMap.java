@@ -2,7 +2,6 @@
 
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.data.PointFeature;
-import de.fhpotsdam.unfolding.marker.Marker;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
@@ -68,7 +67,7 @@ public class EarthquakeCityMap extends PApplet {
         MapUtils.createDefaultEventDispatcher( this, map );
 
         // The List you will populate with new SimplePointMarkers
-        List<Marker> markers = new ArrayList<Marker>();
+        List<SimplePointMarker> markers = new ArrayList<SimplePointMarker>();
 
         //Use provided parser to collect properties for each earthquake
         //PointFeatures have a getLocation method
@@ -83,14 +82,14 @@ public class EarthquakeCityMap extends PApplet {
         }
 
         // Add the markers to the map so that they are displayed
-        map.addMarkers( markers );
+
     }
 
     /* createMarker: A suggested helper method that takes in an earthquake
      * feature and returns a SimplePointMarker for that earthquake
      *
      * In step 3 You can use this method as-is.  Call it from a loop in the
-     * setp method.
+     * setup method.
      *
      * TODO (Step 4): Add code to this method so that it adds the proper
      * styling to each marker based on the magnitude of the earthquake.
@@ -110,6 +109,8 @@ public class EarthquakeCityMap extends PApplet {
         // Here is an example of how to use Processing's color method to generate
         // an int that represents the color yellow.
         int yellow = color( 255, 255, 0 );
+        int grey = color( 150, 150, 150 );
+        int red = color( 255, 0, 0 );
 
         // TODO (Step 4): Add code below to style the marker's size and color
         // according to the magnitude of the earthquake.
@@ -118,7 +119,6 @@ public class EarthquakeCityMap extends PApplet {
         // Rather than comparing the magnitude to a number directly, compare
         // the magnitude to these variables (and change their value in the code
         // above if you want to change what you mean by "moderate" and "light")
-
 
         // Finally return the marker
         return marker;
